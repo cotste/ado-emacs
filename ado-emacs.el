@@ -26,12 +26,10 @@
 ;;; Code:
 
 (defun ado-get-rest(url username token)
-
   "Make a REST API call to ADO.
 URL - the  root URL for ADO API
 USERNAME - The username to connect to ADO with
 TOKEN - The token used to connect to ADO"
-
   (let ((url-request-method "GET")
         (url-request-extra-headers (list
                                     (cons "Content-Type" "application/json")
