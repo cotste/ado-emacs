@@ -21,7 +21,7 @@
 
 ;;; Commentary:
 
-;; Azure devops operations in Emacs
+;; Azure DevOps Integration with Emacs
 
 ;;; Code:
 
