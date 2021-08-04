@@ -25,12 +25,6 @@
 
 ;;; Code:
 
-(defvar ado-username)
-(defvar ado-token)
-(defvar ado-url)
-(defvar ado-org)
-(defvar ado-proj)
-
 (defun ado-get-rest(url username token)
 
   "Make a REST API call to ADO.
@@ -39,14 +33,14 @@ USERNAME - The username to connect to ADO with
 TOKEN - The token used to connect to ADO"
 
   (let ((url-request-method "GET")
-        (url-request-extra-headers (list (cons "Content-Type" "application/json") (cons "Authorization" (concat "Basic " (base64-encode-string (concat username":" token) t))))))
+        (url-request-extra-headers (list
+                                    (cons "Content-Type" "application/json")
+                                    (cons "Authorization" (concat "Basic " (base64-encode-string (concat username":" token) t))))))
     (with-current-buffer
-        (url-retrieve-synchronously ado-url)
+        (url-retrieve-synchronously url)
       (setf (point) url-http-end-of-headers)
       (json-read))))
 
-;(ado-get-rest ado-url ado-username ado-token)
-
-
 (provide 'ado-emacs)
 ;;; ado-emacs.el ends here
+
